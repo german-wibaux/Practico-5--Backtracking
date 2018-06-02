@@ -23,13 +23,14 @@ public class Ejercicio_7 {
 		return parcial == total;
 	}
 	
-	public static void imprimirTablero (int[][] tablero) {
+	public static boolean imprimirTablero (int[][] tablero) {
 		for(int i=0; i<tablero.length; i++) {		
 			for(int j=0;j<tablero[i].length; j++) {
 				System.out.print("|" + tablero[i][j] + "|");			
 			}		
 			System.out.println(); 
 		}
+		return true;
 		
 	}
 	
@@ -38,12 +39,13 @@ public class Ejercicio_7 {
 	}
 	
 	public static void backTablero(int[][] tablero, boolean[] usados, int total, int k, int fila, int columna , boolean control ) {		
-		if( esHoja(tablero) && (!control)) {
+		if( esHoja(tablero) ) {
 			if (esSolucion(tablero, total)) {
+				
 				imprimirTablero(tablero);
-				control = true;
+				
 			}
-		} else if (!control) {
+		} else  {
 			for(int i=1;i<=k;i++) {
 				if(estaDisponible(i, usados))  {
 					if (fila < tablero.length && columna < tablero.length) {
@@ -82,7 +84,7 @@ public class Ejercicio_7 {
 			valoresAUtilizar[i] = true;
 		}			
 		
-		backTablero(tableroMagico, valoresAUtilizar, 60, k, 0, 0, false);
+		backTablero(tableroMagico, valoresAUtilizar, 15, k, 0, 0, false);
 		imprimirTablero(tableroMagico);
 		
 	}
