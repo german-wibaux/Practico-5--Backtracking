@@ -55,7 +55,7 @@ public class Ejercicio_7 {
 
 	}
 
-	public static boolean imprimirTablero(int[][] tablero) {
+	public static void imprimirTablero(int[][] tablero) {
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero[i].length; j++) {
 				System.out.print("|" + tablero[i][j] + "|");
@@ -63,8 +63,6 @@ public class Ejercicio_7 {
 			System.out.println();
 		}
 		System.out.println("////////Tablero///////////");
-		return true;
-
 	}
 
 	public static boolean backTablero(int[][] tablero, boolean[] usados, int total, int k, int fila, int columna) {
@@ -114,7 +112,7 @@ public class Ejercicio_7 {
 		}
 
 		if (backTablero(tableroMagico, valoresAUtilizar, 15, k, 0, 0)) {
-			System.out.println(imprimirTablero(tableroMagico));
+			imprimirTablero(tableroMagico);
 		} 
 
 	}
